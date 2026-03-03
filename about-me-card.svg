@@ -1,101 +1,399 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="840" height="380" viewBox="0 0 840 380">
-  <defs>
-    <linearGradient id="headerGrad" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" style="stop-color:#70a5fd;stop-opacity:1" />
-      <stop offset="100%" style="stop-color:#bf91f3;stop-opacity:1" />
-    </linearGradient>
-    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="0%" y2="100%">
-      <stop offset="0%" style="stop-color:#1a1b27;stop-opacity:1" />
-      <stop offset="100%" style="stop-color:#16161e;stop-opacity:1" />
-    </linearGradient>
-    <filter id="glow">
-      <feGaussianBlur stdDeviation="2" result="coloredBlur"/>
-      <feMerge>
-        <feMergeNode in="coloredBlur"/>
-        <feMergeNode in="SourceGraphic"/>
-      </feMerge>
-    </filter>
-  </defs>
-  
-  <!-- Card Background -->
-  <rect width="840" height="380" rx="16" ry="16" fill="url(#bgGrad)"/>
-  
-  <!-- Border glow -->
-  <rect width="838" height="378" x="1" y="1" rx="15" ry="15" fill="none" stroke="url(#headerGrad)" stroke-width="1.5" opacity="0.4"/>
-  
-  <!-- Header bar -->
-  <rect width="840" height="52" rx="16" ry="16" fill="url(#headerGrad)" opacity="0.15"/>
-  <rect width="840" height="26" y="26" fill="url(#headerGrad)" opacity="0.15"/>
-  
-  <!-- Header text -->
-  <text x="420" y="36" font-family="'Segoe UI', Ubuntu, sans-serif" font-size="18" font-weight="700" fill="#c0caf5" text-anchor="middle" letter-spacing="2">
-    ⚡ ABOUT ME
-  </text>
-  
-  <!-- Decorative dots in header -->
-  <circle cx="24" cy="26" r="6" fill="#ff5f56" opacity="0.8"/>
-  <circle cx="44" cy="26" r="6" fill="#ffbd2e" opacity="0.8"/>
-  <circle cx="64" cy="26" r="6" fill="#27c93f" opacity="0.8"/>
+<svg xmlns="http://www.w3.org/2000/svg" width="850" height="420" viewBox="0 0 850 420">
+  <foreignObject width="850" height="420">
+    <div xmlns="http://www.w3.org/1999/xhtml">
+      <style>
+        @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&amp;family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;display=swap');
 
-  <!-- Left Column -->
-  <!-- Name -->
-  <text x="40" y="90" font-family="'Segoe UI', Ubuntu, sans-serif" font-size="24" font-weight="700" fill="#70a5fd">
-    Vishal Kumar
-  </text>
-  
-  <!-- Role -->
-  <text x="40" y="115" font-family="'Segoe UI', Ubuntu, sans-serif" font-size="13" fill="#7aa2f7" opacity="0.8">
-    Software Engineer — Backend &amp; Platform Engineering
-  </text>
-  
-  <!-- Divider line -->
-  <line x1="40" y1="130" x2="380" y2="130" stroke="#414868" stroke-width="1" opacity="0.5"/>
-  
-  <!-- Info items - Left -->
-  <text x="68" y="158" font-family="'Segoe UI', Ubuntu, sans-serif" font-size="14" fill="#a9b1d6">🏢  Guidewire Software</text>
-  <text x="68" y="186" font-family="'Segoe UI', Ubuntu, sans-serif" font-size="14" fill="#a9b1d6">📍  Bangalore, India 🇮🇳</text>
-  <text x="68" y="214" font-family="'Segoe UI', Ubuntu, sans-serif" font-size="14" fill="#a9b1d6">🌐  Open-Source Contributor @ KubeVela (CNCF)</text>
-  <text x="68" y="242" font-family="'Segoe UI', Ubuntu, sans-serif" font-size="14" fill="#a9b1d6">✈️  Globetrotter · Photographer</text>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
 
-  <!-- Separator -->
-  <line x1="420" y1="70" x2="420" y2="360" stroke="#414868" stroke-width="1" opacity="0.3"/>
+        .card {
+          width: 850px;
+          height: 420px;
+          background: linear-gradient(135deg, #0f0f1a 0%, #1a1a2e 40%, #16213e 100%);
+          border-radius: 20px;
+          position: relative;
+          overflow: hidden;
+          font-family: 'Plus Jakarta Sans', sans-serif;
+          border: 1px solid rgba(112, 165, 253, 0.15);
+        }
 
-  <!-- Right Column - Expertise -->
-  <text x="450" y="90" font-family="'Segoe UI', Ubuntu, sans-serif" font-size="16" font-weight="700" fill="#bf91f3">
-    🎯 Expertise
-  </text>
+        .card::before {
+          content: '';
+          position: absolute;
+          top: -50%;
+          left: -50%;
+          width: 200%;
+          height: 200%;
+          background: 
+            radial-gradient(circle at 20% 50%, rgba(112, 165, 253, 0.08) 0%, transparent 50%),
+            radial-gradient(circle at 80% 20%, rgba(191, 145, 243, 0.08) 0%, transparent 50%),
+            radial-gradient(circle at 60% 80%, rgba(0, 173, 216, 0.06) 0%, transparent 50%);
+          animation: meshMove 8s ease-in-out infinite alternate;
+        }
 
-  <!-- Expertise items with colored bullets -->
-  <rect x="450" y="108" width="10" height="10" rx="2" fill="#00ADD8"/>
-  <text x="470" y="118" font-family="'Segoe UI', Ubuntu, sans-serif" font-size="13" fill="#c0caf5">Go · Kubernetes Operators · CUE</text>
-  
-  <rect x="450" y="136" width="10" height="10" rx="2" fill="#ED8B00"/>
-  <text x="470" y="146" font-family="'Segoe UI', Ubuntu, sans-serif" font-size="13" fill="#c0caf5">Java · Spring Boot · Microservices</text>
-  
-  <rect x="450" y="164" width="10" height="10" rx="2" fill="#326CE5"/>
-  <text x="470" y="174" font-family="'Segoe UI', Ubuntu, sans-serif" font-size="13" fill="#c0caf5">Kubernetes · Helm · Docker · k3d</text>
+        @keyframes meshMove {
+          0% { transform: translate(0, 0) rotate(0deg); }
+          100% { transform: translate(-20px, -15px) rotate(2deg); }
+        }
 
-  <rect x="450" y="192" width="10" height="10" rx="2" fill="#2088FF"/>
-  <text x="470" y="202" font-family="'Segoe UI', Ubuntu, sans-serif" font-size="13" fill="#c0caf5">CI/CD · GitHub Actions · ArgoCD</text>
+        .orb {
+          position: absolute;
+          border-radius: 50%;
+          filter: blur(40px);
+          animation: float 6s ease-in-out infinite;
+        }
 
-  <rect x="450" y="220" width="10" height="10" rx="2" fill="#1a73e8"/>
-  <text x="470" y="230" font-family="'Segoe UI', Ubuntu, sans-serif" font-size="13" fill="#c0caf5">KubeVela · CNCF · Multicluster</text>
+        .orb-1 {
+          width: 120px; height: 120px;
+          background: rgba(112, 165, 253, 0.15);
+          top: -30px; right: 80px;
+          animation-delay: 0s;
+        }
 
-  <rect x="450" y="248" width="10" height="10" rx="2" fill="#6DB33F"/>
-  <text x="470" y="258" font-family="'Segoe UI', Ubuntu, sans-serif" font-size="13" fill="#c0caf5">REST APIs · Platform Engineering</text>
+        .orb-2 {
+          width: 80px; height: 80px;
+          background: rgba(191, 145, 243, 0.12);
+          bottom: 20px; left: 60px;
+          animation-delay: -3s;
+        }
 
-  <!-- Bottom tagline area -->
-  <line x1="40" y1="290" x2="800" y2="290" stroke="#414868" stroke-width="1" opacity="0.3"/>
-  
-  <!-- Tagline -->
-  <text x="420" y="320" font-family="'Segoe UI', Ubuntu, sans-serif" font-size="13" fill="#565f89" text-anchor="middle" font-style="italic">
-    "Building a world — from Java &amp; Spring Boot to Kubernetes platforms with Go
-  </text>
-  <text x="420" y="340" font-family="'Segoe UI', Ubuntu, sans-serif" font-size="13" fill="#565f89" text-anchor="middle" font-style="italic">
-    and empowering CNCF communities through open-source."
-  </text>
+        .orb-3 {
+          width: 60px; height: 60px;
+          background: rgba(0, 216, 180, 0.1);
+          top: 50%; right: 30%;
+          animation-delay: -1.5s;
+        }
 
-  <!-- Bottom accent bar -->
-  <rect y="368" width="840" height="12" rx="0" ry="0" fill="url(#headerGrad)" opacity="0.2"/>
-  <rect y="368" width="840" height="2" fill="url(#headerGrad)" opacity="0.5"/>
+        @keyframes float {
+          0%, 100% { transform: translateY(0px); }
+          50% { transform: translateY(-15px); }
+        }
+
+        .grid-overlay {
+          position: absolute;
+          top: 0; left: 0; right: 0; bottom: 0;
+          background-image: 
+            linear-gradient(rgba(112, 165, 253, 0.03) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(112, 165, 253, 0.03) 1px, transparent 1px);
+          background-size: 40px 40px;
+        }
+
+        .content {
+          position: relative;
+          z-index: 2;
+          padding: 32px 36px;
+          height: 100%;
+          display: flex;
+          flex-direction: column;
+        }
+
+        .header {
+          display: flex;
+          justify-content: space-between;
+          align-items: flex-start;
+          margin-bottom: 24px;
+        }
+
+        .name-block h1 {
+          font-size: 28px;
+          font-weight: 800;
+          background: linear-gradient(135deg, #70a5fd 0%, #bf91f3 50%, #00d8b4 100%);
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+          background-clip: text;
+          letter-spacing: -0.5px;
+          line-height: 1.2;
+        }
+
+        .name-block .subtitle {
+          font-size: 13px;
+          color: #7aa2f7;
+          font-weight: 500;
+          margin-top: 4px;
+          opacity: 0.9;
+        }
+
+        .status-badge {
+          display: flex;
+          align-items: center;
+          gap: 6px;
+          background: rgba(0, 216, 180, 0.1);
+          border: 1px solid rgba(0, 216, 180, 0.25);
+          border-radius: 20px;
+          padding: 6px 14px;
+          font-size: 11px;
+          color: #00d8b4;
+          font-weight: 600;
+          letter-spacing: 0.5px;
+        }
+
+        .status-dot {
+          width: 7px; height: 7px;
+          background: #00d8b4;
+          border-radius: 50%;
+          animation: pulse 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+          0%, 100% { opacity: 1; box-shadow: 0 0 0 0 rgba(0, 216, 180, 0.4); }
+          50% { opacity: 0.7; box-shadow: 0 0 0 6px rgba(0, 216, 180, 0); }
+        }
+
+        .body {
+          display: flex;
+          gap: 28px;
+          flex: 1;
+        }
+
+        .left-col {
+          flex: 1;
+          display: flex;
+          flex-direction: column;
+          gap: 14px;
+        }
+
+        .info-item {
+          display: flex;
+          align-items: center;
+          gap: 12px;
+        }
+
+        .info-icon {
+          width: 36px; height: 36px;
+          border-radius: 10px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          font-size: 16px;
+          flex-shrink: 0;
+        }
+
+        .icon-company { background: linear-gradient(135deg, rgba(112, 165, 253, 0.15), rgba(112, 165, 253, 0.05)); border: 1px solid rgba(112, 165, 253, 0.2); }
+        .icon-location { background: linear-gradient(135deg, rgba(191, 145, 243, 0.15), rgba(191, 145, 243, 0.05)); border: 1px solid rgba(191, 145, 243, 0.2); }
+        .icon-oss { background: linear-gradient(135deg, rgba(0, 216, 180, 0.15), rgba(0, 216, 180, 0.05)); border: 1px solid rgba(0, 216, 180, 0.2); }
+        .icon-travel { background: linear-gradient(135deg, rgba(255, 183, 77, 0.15), rgba(255, 183, 77, 0.05)); border: 1px solid rgba(255, 183, 77, 0.2); }
+
+        .info-text {
+          display: flex;
+          flex-direction: column;
+        }
+
+        .info-label {
+          font-size: 10px;
+          color: #565f89;
+          text-transform: uppercase;
+          letter-spacing: 1px;
+          font-weight: 600;
+        }
+
+        .info-value {
+          font-size: 13.5px;
+          color: #c0caf5;
+          font-weight: 600;
+        }
+
+        .divider {
+          width: 1px;
+          background: linear-gradient(180deg, transparent, rgba(112, 165, 253, 0.2), rgba(191, 145, 243, 0.2), transparent);
+        }
+
+        .right-col {
+          flex: 1.15;
+          display: flex;
+          flex-direction: column;
+        }
+
+        .section-label {
+          font-size: 10px;
+          color: #565f89;
+          text-transform: uppercase;
+          letter-spacing: 1.5px;
+          font-weight: 700;
+          margin-bottom: 14px;
+        }
+
+        .skill-grid {
+          display: flex;
+          flex-direction: column;
+          gap: 8px;
+        }
+
+        .skill-row {
+          display: flex;
+          align-items: center;
+          gap: 10px;
+          padding: 7px 12px;
+          border-radius: 10px;
+          background: rgba(255,255,255, 0.02);
+          border: 1px solid rgba(255,255,255, 0.04);
+        }
+
+        .skill-dot {
+          width: 8px; height: 8px;
+          border-radius: 3px;
+          flex-shrink: 0;
+        }
+
+        .dot-go { background: #00ADD8; box-shadow: 0 0 8px rgba(0, 173, 216, 0.4); }
+        .dot-java { background: #ED8B00; box-shadow: 0 0 8px rgba(237, 139, 0, 0.4); }
+        .dot-k8s { background: #326CE5; box-shadow: 0 0 8px rgba(50, 108, 229, 0.4); }
+        .dot-cicd { background: #2088FF; box-shadow: 0 0 8px rgba(32, 136, 255, 0.4); }
+        .dot-cncf { background: #00d8b4; box-shadow: 0 0 8px rgba(0, 216, 180, 0.4); }
+        .dot-api { background: #bf91f3; box-shadow: 0 0 8px rgba(191, 145, 243, 0.4); }
+
+        .skill-text {
+          font-family: 'JetBrains Mono', monospace;
+          font-size: 12px;
+          color: #a9b1d6;
+          font-weight: 500;
+        }
+
+        .footer-bar {
+          margin-top: auto;
+          padding-top: 16px;
+          border-top: 1px solid rgba(112, 165, 253, 0.08);
+          display: flex;
+          justify-content: center;
+          align-items: center;
+        }
+
+        .footer-text {
+          font-size: 12px;
+          color: #414868;
+          font-style: italic;
+          text-align: center;
+          line-height: 1.5;
+        }
+
+        .footer-text span {
+          background: linear-gradient(90deg, #70a5fd, #bf91f3);
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+          background-clip: text;
+          font-weight: 600;
+          font-style: normal;
+        }
+
+        .corner-accent {
+          position: absolute;
+          bottom: 0;
+          right: 0;
+          width: 200px;
+          height: 200px;
+          background: linear-gradient(135deg, transparent 50%, rgba(112, 165, 253, 0.03) 100%);
+          border-radius: 20px;
+        }
+
+        .scanline {
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 2px;
+          background: linear-gradient(90deg, transparent, rgba(112, 165, 253, 0.15), rgba(191, 145, 243, 0.15), transparent);
+          animation: scan 4s linear infinite;
+        }
+
+        @keyframes scan {
+          0% { top: 0; opacity: 0; }
+          10% { opacity: 1; }
+          90% { opacity: 1; }
+          100% { top: 100%; opacity: 0; }
+        }
+      </style>
+
+      <div class="card">
+        <div class="orb orb-1"></div>
+        <div class="orb orb-2"></div>
+        <div class="orb orb-3"></div>
+        <div class="grid-overlay"></div>
+        <div class="scanline"></div>
+        <div class="corner-accent"></div>
+
+        <div class="content">
+          <div class="header">
+            <div class="name-block">
+              <h1>Vishal Kumar</h1>
+              <div class="subtitle">Software Engineer — Backend &amp; Platform Engineering</div>
+            </div>
+            <div class="status-badge">
+              <div class="status-dot"></div>
+              OPEN TO COLLABORATE
+            </div>
+          </div>
+
+          <div class="body">
+            <div class="left-col">
+              <div class="info-item">
+                <div class="info-icon icon-company">🏢</div>
+                <div class="info-text">
+                  <div class="info-label">Company</div>
+                  <div class="info-value">Guidewire Software</div>
+                </div>
+              </div>
+              <div class="info-item">
+                <div class="info-icon icon-location">📍</div>
+                <div class="info-text">
+                  <div class="info-label">Location</div>
+                  <div class="info-value">Bangalore, India 🇮🇳</div>
+                </div>
+              </div>
+              <div class="info-item">
+                <div class="info-icon icon-oss">🌐</div>
+                <div class="info-text">
+                  <div class="info-label">Open Source</div>
+                  <div class="info-value">KubeVela Contributor (CNCF)</div>
+                </div>
+              </div>
+              <div class="info-item">
+                <div class="info-icon icon-travel">✈️</div>
+                <div class="info-text">
+                  <div class="info-label">Beyond Code</div>
+                  <div class="info-value">Globetrotter · Photographer</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="divider"></div>
+
+            <div class="right-col">
+              <div class="section-label">⚡ Expertise</div>
+              <div class="skill-grid">
+                <div class="skill-row">
+                  <div class="skill-dot dot-go"></div>
+                  <div class="skill-text">Go · Kubernetes Operators · CUE</div>
+                </div>
+                <div class="skill-row">
+                  <div class="skill-dot dot-java"></div>
+                  <div class="skill-text">Java · Spring Boot · Microservices</div>
+                </div>
+                <div class="skill-row">
+                  <div class="skill-dot dot-k8s"></div>
+                  <div class="skill-text">Kubernetes · Helm · Docker · k3d</div>
+                </div>
+                <div class="skill-row">
+                  <div class="skill-dot dot-cicd"></div>
+                  <div class="skill-text">CI/CD · GitHub Actions · ArgoCD</div>
+                </div>
+                <div class="skill-row">
+                  <div class="skill-dot dot-cncf"></div>
+                  <div class="skill-text">KubeVela · CNCF · Multicluster</div>
+                </div>
+                <div class="skill-row">
+                  <div class="skill-dot dot-api"></div>
+                  <div class="skill-text">REST APIs · Platform Engineering</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="footer-bar">
+            <div class="footer-text">
+              Building a world — from <span>Java &amp; Spring Boot</span> to <span>Kubernetes platforms with Go</span> — empowering communities through <span>open-source</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </foreignObject>
 </svg>
