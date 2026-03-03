@@ -3,7 +3,7 @@
 <div align="center">
 
 <!-- 📌 Place about-me-card.svg in your profile repo root -->
-<img src="https://raw.githubusercontent.com/vishal210893/vishal210893/main/about-me-card.svg?v=5" alt="About Me Card" width="850"/>
+<img src="https://raw.githubusercontent.com/vishal210893/vishal210893/main/about-me-card.svg?v=4" alt="About Me Card" width="850"/>
 
 </div>
 
@@ -11,14 +11,14 @@
 
 ---
 
-## 🛠️ &nbsp;Tech Stack & Tools
+## <img src="https://skillicons.dev/icons?i=go&theme=dark" height="24"> &nbsp;Tech Stack & Tools
 
 <div align="center">
 
 | Category | Technologies |
 |:---------|:-------------|
 | **Languages** | <a href="https://skillicons.dev"><img src="https://skillicons.dev/icons?i=go,java,js,bash,py,html,css&theme=dark" height="36" alt="Languages" /></a> |
-| **Cloud Native & Infra** | <a href="https://skillicons.dev"><img src="https://skillicons.dev/icons?i=kubernetes,docker,aws,gcp,terraform,ansible,prometheus,grafana&theme=dark" height="36" alt="Cloud Native" /></a> |
+| **Cloud Native & Infra** | <a href="https://skillicons.dev"><img src="https://skillicons.dev/icons?i=kubernetes,docker,azure,aws,gcp,terraform,ansible,prometheus,grafana&theme=dark" height="36" alt="Cloud Native" /></a> |
 | **Frameworks & Backend** | <a href="https://skillicons.dev"><img src="https://skillicons.dev/icons?i=spring,hibernate,kafka,rabbitmq,redis,postgres,mysql,mongodb&theme=dark" height="36" alt="Frameworks" /></a> |
 | **DevOps & CI/CD** | <a href="https://skillicons.dev"><img src="https://skillicons.dev/icons?i=git,github,githubactions,gitlab,jenkins,gradle,maven,nginx&theme=dark" height="36" alt="DevOps" /></a> |
 | **Dev Environment** | <a href="https://skillicons.dev"><img src="https://skillicons.dev/icons?i=vscode,idea,vim,linux,apple,postman,md&theme=dark" height="36" alt="Dev Env" /></a> |
@@ -28,7 +28,7 @@
 
 ---
 
-## 🧰 &nbsp;Tools & Platforms I Work With
+## <img src="https://skillicons.dev/icons?i=kubernetes&theme=dark" height="24"> &nbsp;Tools & Platforms I Work With
 
 <div align="center">
 
@@ -39,7 +39,8 @@
 | **CI/CD & DevOps** | ![GitHub Actions](https://img.shields.io/badge/GitHub_Actions-2088FF?style=flat-square&logo=github-actions&logoColor=white) ![Jenkins](https://img.shields.io/badge/Jenkins-D24939?style=flat-square&logo=jenkins&logoColor=white) ![ArgoCD](https://img.shields.io/badge/Argo_CD-EF7B4D?style=flat-square&logo=argo&logoColor=white) ![Makefile](https://img.shields.io/badge/Makefile-427819?style=flat-square&logo=gnu&logoColor=white) |
 | **Version Control** | ![Git](https://img.shields.io/badge/Git-F05032?style=flat-square&logo=git&logoColor=white) ![GitHub](https://img.shields.io/badge/GitHub-181717?style=flat-square&logo=github&logoColor=white) ![GitLab](https://img.shields.io/badge/GitLab-FC6D26?style=flat-square&logo=gitlab&logoColor=white) |
 | **Monitoring & Observability** | ![Prometheus](https://img.shields.io/badge/Prometheus-E6522C?style=flat-square&logo=prometheus&logoColor=white) ![Grafana](https://img.shields.io/badge/Grafana-F46800?style=flat-square&logo=grafana&logoColor=white) ![Jaeger](https://img.shields.io/badge/Jaeger-66CFE3?style=flat-square&logo=jaeger&logoColor=black) |
-| **Databases** | ![PostgreSQL](https://img.shields.io/badge/PostgreSQL-4169E1?style=flat-square&logo=postgresql&logoColor=white) ![MySQL](https://img.shields.io/badge/MySQL-4479A1?style=flat-square&logo=mysql&logoColor=white) ![Redis](https://img.shields.io/badge/Redis-DC382D?style=flat-square&logo=redis&logoColor=white) |
+| **Azure Services** | ![Azure IoT Hub](https://img.shields.io/badge/IoT_Hub-0078D4?style=flat-square&logo=microsoftazure&logoColor=white) ![Event Hub](https://img.shields.io/badge/Event_Hub-0078D4?style=flat-square&logo=microsoftazure&logoColor=white) ![Blob Storage](https://img.shields.io/badge/Blob_Storage-0078D4?style=flat-square&logo=microsoftazure&logoColor=white) ![AKS](https://img.shields.io/badge/AKS-326CE5?style=flat-square&logo=kubernetes&logoColor=white) ![AAD](https://img.shields.io/badge/Azure_AD-0078D4?style=flat-square&logo=microsoftazure&logoColor=white) |
+| **Databases** | ![PostgreSQL](https://img.shields.io/badge/PostgreSQL-4169E1?style=flat-square&logo=postgresql&logoColor=white) ![MySQL](https://img.shields.io/badge/MySQL-4479A1?style=flat-square&logo=mysql&logoColor=white) ![MongoDB](https://img.shields.io/badge/MongoDB-47A248?style=flat-square&logo=mongodb&logoColor=white) ![Redis](https://img.shields.io/badge/Redis-DC382D?style=flat-square&logo=redis&logoColor=white) |
 | **OS & Terminal** | ![macOS](https://img.shields.io/badge/macOS-000000?style=flat-square&logo=apple&logoColor=white) ![Linux](https://img.shields.io/badge/Linux-FCC624?style=flat-square&logo=linux&logoColor=black) ![iTerm2](https://img.shields.io/badge/iTerm2-000000?style=flat-square&logo=iterm2&logoColor=white) ![Zsh](https://img.shields.io/badge/Zsh-F15A24?style=flat-square&logo=zsh&logoColor=white) |
 | **API & Testing** | ![Postman](https://img.shields.io/badge/Postman-FF6C37?style=flat-square&logo=postman&logoColor=white) ![Swagger](https://img.shields.io/badge/Swagger-85EA2D?style=flat-square&logo=swagger&logoColor=black) ![curl](https://img.shields.io/badge/curl-073551?style=flat-square&logo=curl&logoColor=white) |
 | **Collaboration** | ![Jira](https://img.shields.io/badge/Jira-0052CC?style=flat-square&logo=jira&logoColor=white) ![Confluence](https://img.shields.io/badge/Confluence-172B4D?style=flat-square&logo=confluence&logoColor=white) ![Slack](https://img.shields.io/badge/Slack-4A154B?style=flat-square&logo=slack&logoColor=white) ![Notion](https://img.shields.io/badge/Notion-000000?style=flat-square&logo=notion&logoColor=white) |
@@ -48,7 +49,7 @@
 
 ---
 
-## 📊 &nbsp;GitHub Analytics
+## <img src="https://skillicons.dev/icons?i=github&theme=dark" height="24"> &nbsp;GitHub Analytics
 
 <div align="center">
 
@@ -68,7 +69,7 @@
 
 ---
 
-## 🏆 &nbsp;GitHub Trophies
+## <img src="https://skillicons.dev/icons?i=github&theme=dark" height="24"> &nbsp;GitHub Trophies
 
 <div align="center">
 
@@ -84,7 +85,7 @@
 
 ---
 
-## 📈 &nbsp;Contribution Graph
+## <img src="https://skillicons.dev/icons?i=git&theme=dark" height="24"> &nbsp;Contribution Graph
 
 <div align="center">
 
@@ -94,7 +95,7 @@
 
 ---
 
-## 🚀 &nbsp;Open-Source Contributions — KubeVela
+## <img src="https://skillicons.dev/icons?i=docker&theme=dark" height="24"> &nbsp;Open-Source Contributions — KubeVela
 
 <div align="center">
 
@@ -156,7 +157,7 @@
 
 ```mermaid
 graph LR
-    A[🧠 Core Expertise] -->|Backend| B[☕ Java & Spring Boot]
+    A[🧠 Core Expertise] -->|Backend| B[☕ Java & Spring Boot & Spring Cloud]
     A -->|Cloud-Native| C[🔷 Go & K8s Operators]
     B -->|Microservices| D[🐳 Docker & Containers]
     C -->|Platform| D
