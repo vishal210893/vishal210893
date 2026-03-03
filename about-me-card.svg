@@ -123,15 +123,15 @@
           <div class="items">
             <div class="item">
               <div class="icon-circle ic-blue">🔭</div>
-              <div class="item-text"><div class="item-label">Open Source</div><div class="item-value">KubeVela (CNCF) — CUE validation, webhook TLS fixes, K8s upgrades &amp; dev logging</div></div>
+              <div class="item-text"><div class="item-label">Open Source</div><div class="item-value">KubeVela (CNCF), Workflow, Kube Trigger &amp; dev logging</div></div>
             </div>
             <div class="item">
               <div class="icon-circle ic-teal">🛠️</div>
-              <div class="item-text"><div class="item-label">Cloud Native</div><div class="item-value">K8s operators in Go, AKS autoscaling, HPA, ConfigMaps &amp; graceful shutdown</div></div>
+              <div class="item-text"><div class="item-label">Cloud Native</div><div class="item-value">K8s operators in Go, Crossplane, FluxCD, Github Action &amp; Terraform</div></div>
             </div>
             <div class="item">
               <div class="icon-circle ic-orange">⚡</div>
-              <div class="item-text"><div class="item-label">Microservices</div><div class="item-value">Multi-tenant Spring Boot, AMQPS event-driven &amp; Spring Integration at SOLUM</div></div>
+              <div class="item-text"><div class="item-label">Microservices</div><div class="item-value">Multi-tenant Spring Boot, AMQPS event-driven, Spring Reactive &amp; Spring Integration</div></div>
             </div>
             <div class="item">
               <div class="icon-circle ic-azure">☁️</div>
