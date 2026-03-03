@@ -3,7 +3,7 @@
 <div align="center">
 
 <!-- 📌 Place about-me-card.svg in your profile repo root -->
-<img src="https://raw.githubusercontent.com/vishal210893/vishal210893/main/about-me-card.svg?v=3" alt="About Me Card" width="850"/>
+<img src="https://raw.githubusercontent.com/vishal210893/vishal210893/main/about-me-card.svg?v=5" alt="About Me Card" width="850"/>
 
 </div>
 
