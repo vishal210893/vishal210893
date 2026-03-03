@@ -123,7 +123,7 @@
           <div class="items">
             <div class="item">
               <div class="icon-circle ic-blue">🔭</div>
-              <div class="item-text"><div class="item-label">Open Source</div><div class="item-value">KubeVela (CNCF), Workflow, Kube Trigger &amp; VelaGo Template</div></div>
+              <div class="item-text"><div class="item-label">Open Source</div><div class="item-value">KubeVela (CNCF), Workflow, Kube Trigger &amp; Vela-Go Definition</div></div>
             </div>
             <div class="item">
               <div class="icon-circle ic-teal">🛠️</div>
