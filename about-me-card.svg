@@ -3,358 +3,70 @@
     <div xmlns="http://www.w3.org/1999/xhtml">
       <style>
         @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&amp;family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;display=swap');
-
         * { margin: 0; padding: 0; box-sizing: border-box; }
-
-        .card {
-          width: 850px;
-          height: 700px;
-          background: linear-gradient(135deg, #0f0f1a 0%, #1a1a2e 40%, #16213e 100%);
-          border-radius: 20px;
-          position: relative;
-          overflow: hidden;
-          font-family: 'Plus Jakarta Sans', sans-serif;
-          border: 1px solid rgba(112, 165, 253, 0.15);
-        }
-
-        /* ── animated mesh bg ── */
-        .card::before {
-          content: '';
-          position: absolute;
-          top: -50%; left: -50%;
-          width: 200%; height: 200%;
-          background:
-            radial-gradient(circle at 20% 50%, rgba(112,165,253,0.08) 0%, transparent 50%),
-            radial-gradient(circle at 80% 20%, rgba(191,145,243,0.08) 0%, transparent 50%),
-            radial-gradient(circle at 60% 80%, rgba(0,173,216,0.06) 0%, transparent 50%);
-          animation: meshMove 8s ease-in-out infinite alternate;
-        }
-        @keyframes meshMove {
-          0%   { transform: translate(0, 0) rotate(0deg); }
-          100% { transform: translate(-20px, -15px) rotate(2deg); }
-        }
-
-        /* ── floating orbs ── */
-        .orb {
-          position: absolute;
-          border-radius: 50%;
-          filter: blur(40px);
-          animation: float 6s ease-in-out infinite;
-        }
-        .orb-1 {
-          width: 120px; height: 120px;
-          background: rgba(112,165,253,0.15);
-          top: -30px; right: 80px;
-        }
-        .orb-2 {
-          width: 80px; height: 80px;
-          background: rgba(191,145,243,0.12);
-          bottom: 80px; left: 60px;
-          animation-delay: -3s;
-        }
-        .orb-3 {
-          width: 60px; height: 60px;
-          background: rgba(0,216,180,0.1);
-          top: 45%; right: 25%;
-          animation-delay: -1.5s;
-        }
-        @keyframes float {
-          0%, 100% { transform: translateY(0px); }
-          50%      { transform: translateY(-15px); }
-        }
-
-        /* ── scan line ── */
-        .scanline {
-          position: absolute;
-          top: 0; left: 0;
-          width: 100%; height: 2px;
-          background: linear-gradient(90deg, transparent, rgba(112,165,253,0.15), rgba(191,145,243,0.15), transparent);
-          animation: scan 5s linear infinite;
-        }
-        @keyframes scan {
-          0%   { top: 0; opacity: 0; }
-          10%  { opacity: 1; }
-          90%  { opacity: 1; }
-          100% { top: 100%; opacity: 0; }
-        }
-
-        /* ── grid overlay ── */
-        .grid {
-          position: absolute;
-          top: 0; left: 0; right: 0; bottom: 0;
-          background-image:
-            linear-gradient(rgba(112,165,253,0.03) 1px, transparent 1px),
-            linear-gradient(90deg, rgba(112,165,253,0.03) 1px, transparent 1px);
-          background-size: 40px 40px;
-        }
-
-        .corner-accent {
-          position: absolute;
-          bottom: 0; right: 0;
-          width: 200px; height: 200px;
-          background: linear-gradient(135deg, transparent 50%, rgba(112,165,253,0.03) 100%);
-          border-radius: 20px;
-        }
-
-        .content {
-          position: relative;
-          z-index: 2;
-          padding: 30px 36px 24px;
-          height: 100%;
-          display: flex;
-          flex-direction: column;
-        }
-
-        /* ══════════════════ HEADER ══════════════════ */
-        .header {
-          display: flex;
-          justify-content: space-between;
-          align-items: flex-start;
-          margin-bottom: 24px;
-        }
-        .name-block h1 {
-          font-size: 28px;
-          font-weight: 800;
-          background: linear-gradient(135deg, #70a5fd 0%, #bf91f3 50%, #00d8b4 100%);
-          -webkit-background-clip: text;
-          -webkit-text-fill-color: transparent;
-          background-clip: text;
-          letter-spacing: -0.5px;
-          line-height: 1.2;
-        }
-        .name-block .subtitle {
-          font-size: 13px;
-          color: #7aa2f7;
-          font-weight: 500;
-          margin-top: 4px;
-          opacity: 0.9;
-        }
-        .status-badge {
-          display: flex;
-          align-items: center;
-          gap: 6px;
-          background: rgba(0,216,180,0.1);
-          border: 1px solid rgba(0,216,180,0.25);
-          border-radius: 20px;
-          padding: 6px 14px;
-          font-size: 11px;
-          color: #00d8b4;
-          font-weight: 600;
-          letter-spacing: 0.5px;
-        }
-        .status-dot {
-          width: 7px; height: 7px;
-          background: #00d8b4;
-          border-radius: 50%;
-          animation: pulse 2s ease-in-out infinite;
-        }
-        @keyframes pulse {
-          0%, 100% { opacity: 1; box-shadow: 0 0 0 0 rgba(0,216,180,0.4); }
-          50%      { opacity: 0.7; box-shadow: 0 0 0 6px rgba(0,216,180,0); }
-        }
-
-        /* ══════════════════ ABOUT ME ══════════════════ */
-        .about-section {
-          display: flex;
-          gap: 28px;
-          margin-bottom: 22px;
-        }
-        .left-col {
-          flex: 1;
-          display: flex;
-          flex-direction: column;
-          gap: 14px;
-        }
-        .info-item {
-          display: flex;
-          align-items: center;
-          gap: 12px;
-        }
-        .info-icon {
-          width: 36px; height: 36px;
-          border-radius: 10px;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          font-size: 16px;
-          flex-shrink: 0;
-        }
+        .card { width: 850px; height: 700px; background: linear-gradient(135deg, #0f0f1a 0%, #1a1a2e 40%, #16213e 100%); border-radius: 20px; position: relative; overflow: hidden; font-family: 'Plus Jakarta Sans', sans-serif; border: 1px solid rgba(112,165,253,0.15); }
+        .card::before { content: ''; position: absolute; top: -50%; left: -50%; width: 200%; height: 200%; background: radial-gradient(circle at 20% 50%, rgba(112,165,253,0.08) 0%, transparent 50%), radial-gradient(circle at 80% 20%, rgba(191,145,243,0.08) 0%, transparent 50%), radial-gradient(circle at 60% 80%, rgba(0,173,216,0.06) 0%, transparent 50%); animation: meshMove 8s ease-in-out infinite alternate; }
+        @keyframes meshMove { 0% { transform: translate(0,0) rotate(0deg); } 100% { transform: translate(-20px,-15px) rotate(2deg); } }
+        .orb { position: absolute; border-radius: 50%; filter: blur(40px); animation: float 6s ease-in-out infinite; }
+        .orb-1 { width: 120px; height: 120px; background: rgba(112,165,253,0.15); top: -30px; right: 80px; }
+        .orb-2 { width: 80px; height: 80px; background: rgba(191,145,243,0.12); bottom: 80px; left: 60px; animation-delay: -3s; }
+        .orb-3 { width: 60px; height: 60px; background: rgba(0,216,180,0.1); top: 45%; right: 25%; animation-delay: -1.5s; }
+        @keyframes float { 0%, 100% { transform: translateY(0px); } 50% { transform: translateY(-15px); } }
+        .scanline { position: absolute; top: 0; left: 0; width: 100%; height: 2px; background: linear-gradient(90deg, transparent, rgba(112,165,253,0.15), rgba(191,145,243,0.15), transparent); animation: scan 5s linear infinite; }
+        @keyframes scan { 0% { top: 0; opacity: 0; } 10% { opacity: 1; } 90% { opacity: 1; } 100% { top: 100%; opacity: 0; } }
+        .grid { position: absolute; top: 0; left: 0; right: 0; bottom: 0; background-image: linear-gradient(rgba(112,165,253,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(112,165,253,0.03) 1px, transparent 1px); background-size: 40px 40px; }
+        .corner-accent { position: absolute; bottom: 0; right: 0; width: 200px; height: 200px; background: linear-gradient(135deg, transparent 50%, rgba(112,165,253,0.03) 100%); border-radius: 20px; }
+        .content { position: relative; z-index: 2; padding: 30px 36px 24px; height: 100%; display: flex; flex-direction: column; }
+        .header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 24px; }
+        .name-block h1 { font-size: 28px; font-weight: 800; background: linear-gradient(135deg, #70a5fd 0%, #bf91f3 50%, #00d8b4 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; letter-spacing: -0.5px; line-height: 1.2; }
+        .name-block .subtitle { font-size: 13px; color: #7aa2f7; font-weight: 500; margin-top: 4px; opacity: 0.9; }
+        .about-section { display: flex; gap: 28px; margin-bottom: 22px; }
+        .left-col { flex: 1; display: flex; flex-direction: column; gap: 12px; }
+        .info-item { display: flex; align-items: center; gap: 12px; }
+        .info-icon { width: 36px; height: 36px; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 16px; flex-shrink: 0; }
         .icon-company  { background: linear-gradient(135deg, rgba(112,165,253,0.15), rgba(112,165,253,0.05)); border: 1px solid rgba(112,165,253,0.2); }
+        .icon-prev     { background: linear-gradient(135deg, rgba(255,183,77,0.15), rgba(255,183,77,0.05)); border: 1px solid rgba(255,183,77,0.2); }
         .icon-location { background: linear-gradient(135deg, rgba(191,145,243,0.15), rgba(191,145,243,0.05)); border: 1px solid rgba(191,145,243,0.2); }
         .icon-oss      { background: linear-gradient(135deg, rgba(0,216,180,0.15), rgba(0,216,180,0.05)); border: 1px solid rgba(0,216,180,0.2); }
-        .icon-travel   { background: linear-gradient(135deg, rgba(255,183,77,0.15), rgba(255,183,77,0.05)); border: 1px solid rgba(255,183,77,0.2); }
-
+        .icon-travel   { background: linear-gradient(135deg, rgba(255,107,129,0.15), rgba(255,107,129,0.05)); border: 1px solid rgba(255,107,129,0.2); }
         .info-text { display: flex; flex-direction: column; }
-        .info-label {
-          font-size: 10px;
-          color: #565f89;
-          text-transform: uppercase;
-          letter-spacing: 1px;
-          font-weight: 600;
-        }
-        .info-value {
-          font-size: 13.5px;
-          color: #c0caf5;
-          font-weight: 600;
-        }
-
-        .divider-v {
-          width: 1px;
-          background: linear-gradient(180deg, transparent, rgba(112,165,253,0.2), rgba(191,145,243,0.2), transparent);
-        }
-
-        .right-col {
-          flex: 1.15;
-          display: flex;
-          flex-direction: column;
-        }
-        .section-label {
-          font-size: 10px;
-          color: #565f89;
-          text-transform: uppercase;
-          letter-spacing: 1.5px;
-          font-weight: 700;
-          margin-bottom: 14px;
-        }
-        .skill-grid {
-          display: flex;
-          flex-direction: column;
-          gap: 8px;
-        }
-        .skill-row {
-          display: flex;
-          align-items: center;
-          gap: 10px;
-          padding: 7px 12px;
-          border-radius: 10px;
-          background: rgba(255,255,255,0.02);
-          border: 1px solid rgba(255,255,255,0.04);
-        }
-        .skill-dot {
-          width: 8px; height: 8px;
-          border-radius: 3px;
-          flex-shrink: 0;
-        }
+        .info-label { font-size: 10px; color: #565f89; text-transform: uppercase; letter-spacing: 1px; font-weight: 600; }
+        .info-value { font-size: 13.5px; color: #c0caf5; font-weight: 600; }
+        .divider-v { width: 1px; background: linear-gradient(180deg, transparent, rgba(112,165,253,0.2), rgba(191,145,243,0.2), transparent); }
+        .right-col { flex: 1.15; display: flex; flex-direction: column; }
+        .section-label { font-size: 10px; color: #565f89; text-transform: uppercase; letter-spacing: 1.5px; font-weight: 700; margin-bottom: 14px; }
+        .skill-grid { display: flex; flex-direction: column; gap: 8px; }
+        .skill-row { display: flex; align-items: center; gap: 10px; padding: 7px 12px; border-radius: 10px; background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.04); }
+        .skill-dot { width: 8px; height: 8px; border-radius: 3px; flex-shrink: 0; }
         .dot-go   { background: #00ADD8; box-shadow: 0 0 8px rgba(0,173,216,0.4); }
         .dot-java { background: #ED8B00; box-shadow: 0 0 8px rgba(237,139,0,0.4); }
+        .dot-azure{ background: #0078D4; box-shadow: 0 0 8px rgba(0,120,212,0.4); }
         .dot-k8s  { background: #326CE5; box-shadow: 0 0 8px rgba(50,108,229,0.4); }
         .dot-cicd { background: #2088FF; box-shadow: 0 0 8px rgba(32,136,255,0.4); }
-        .dot-cncf { background: #00d8b4; box-shadow: 0 0 8px rgba(0,216,180,0.4); }
-        .dot-api  { background: #bf91f3; box-shadow: 0 0 8px rgba(191,145,243,0.4); }
-        .skill-text {
-          font-family: 'JetBrains Mono', monospace;
-          font-size: 12px;
-          color: #a9b1d6;
-          font-weight: 500;
-        }
-
-        /* ══════════════════ SECTION DIVIDER ══════════════════ */
-        .section-divider {
-          height: 1px;
-          background: linear-gradient(90deg, transparent 5%, rgba(112,165,253,0.18) 30%, rgba(191,145,243,0.18) 70%, transparent 95%);
-          margin-bottom: 20px;
-        }
-
-        /* ══════════════════ HIGHLIGHTS ══════════════════ */
-        .highlights-header {
-          display: flex;
-          align-items: center;
-          gap: 8px;
-          margin-bottom: 16px;
-        }
+        .dot-db   { background: #bf91f3; box-shadow: 0 0 8px rgba(191,145,243,0.4); }
+        .skill-text { font-family: 'JetBrains Mono', monospace; font-size: 12px; color: #a9b1d6; font-weight: 500; }
+        .section-divider { height: 1px; background: linear-gradient(90deg, transparent 5%, rgba(112,165,253,0.18) 30%, rgba(191,145,243,0.18) 70%, transparent 95%); margin-bottom: 20px; }
+        .highlights-header { display: flex; align-items: center; gap: 8px; margin-bottom: 16px; }
         .dot-mac { width: 10px; height: 10px; border-radius: 50%; }
-        .dot-mac-r { background: #ff5f57; }
-        .dot-mac-y { background: #febc2e; }
-        .dot-mac-g { background: #28c840; }
-        .terminal-title {
-          font-family: 'JetBrains Mono', monospace;
-          font-size: 10.5px;
-          color: rgba(255,255,255,0.3);
-          margin-left: 8px;
-          letter-spacing: 1px;
-          text-transform: uppercase;
-        }
-
-        .items {
-          display: grid;
-          grid-template-columns: 1fr 1fr;
-          gap: 12px 22px;
-        }
-        .item {
-          display: flex;
-          align-items: flex-start;
-          gap: 11px;
-          padding: 11px 14px;
-          background: rgba(255,255,255,0.03);
-          border-radius: 12px;
-          border: 1px solid rgba(255,255,255,0.05);
-        }
-        .icon-circle {
-          width: 34px; height: 34px;
-          border-radius: 10px;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          font-size: 16px;
-          flex-shrink: 0;
-        }
-        .ic-blue   { background: rgba(112,165,253,0.15); }
-        .ic-purple { background: rgba(191,145,243,0.15); }
-        .ic-teal   { background: rgba(0,216,180,0.15); }
-        .ic-orange { background: rgba(255,158,67,0.15); }
-        .ic-pink   { background: rgba(255,107,129,0.15); }
-        .ic-green  { background: rgba(40,200,64,0.15); }
-
+        .dot-mac-r { background: #ff5f57; } .dot-mac-y { background: #febc2e; } .dot-mac-g { background: #28c840; }
+        .terminal-title { font-family: 'JetBrains Mono', monospace; font-size: 10.5px; color: rgba(255,255,255,0.3); margin-left: 8px; letter-spacing: 1px; text-transform: uppercase; }
+        .items { display: grid; grid-template-columns: 1fr 1fr; gap: 12px 22px; }
+        .item { display: flex; align-items: flex-start; gap: 11px; padding: 11px 14px; background: rgba(255,255,255,0.03); border-radius: 12px; border: 1px solid rgba(255,255,255,0.05); }
+        .icon-circle { width: 34px; height: 34px; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 16px; flex-shrink: 0; }
+        .ic-blue { background: rgba(112,165,253,0.15); } .ic-purple { background: rgba(191,145,243,0.15); } .ic-teal { background: rgba(0,216,180,0.15); } .ic-orange { background: rgba(255,158,67,0.15); } .ic-pink { background: rgba(255,107,129,0.15); } .ic-green { background: rgba(40,200,64,0.15); } .ic-azure { background: rgba(0,120,212,0.15); }
         .item-text { display: flex; flex-direction: column; gap: 2px; }
-        .item-label {
-          font-family: 'JetBrains Mono', monospace;
-          font-size: 9.5px;
-          font-weight: 500;
-          text-transform: uppercase;
-          letter-spacing: 1.5px;
-          color: rgba(255,255,255,0.4);
-        }
-        .item-value {
-          font-size: 12.5px;
-          font-weight: 600;
-          color: rgba(255,255,255,0.88);
-          line-height: 1.35;
-        }
-
-        /* ══════════════════ FOOTER ══════════════════ */
-        .footer-bar {
-          margin-top: 18px;
-          padding-top: 14px;
-          border-top: 1px solid rgba(112,165,253,0.08);
-          text-align: center;
-        }
-        .footer-text {
-          font-size: 11.5px;
-          color: #414868;
-          font-style: italic;
-          line-height: 1.5;
-        }
-        .footer-text span {
-          background: linear-gradient(90deg, #70a5fd, #bf91f3);
-          -webkit-background-clip: text;
-          -webkit-text-fill-color: transparent;
-          background-clip: text;
-          font-weight: 600;
-          font-style: normal;
-        }
+        .item-label { font-family: 'JetBrains Mono', monospace; font-size: 9.5px; font-weight: 500; text-transform: uppercase; letter-spacing: 1.5px; color: rgba(255,255,255,0.4); }
+        .item-value { font-size: 12.5px; font-weight: 600; color: rgba(255,255,255,0.88); line-height: 1.35; }
+        .footer-bar { margin-top: 18px; padding-top: 14px; border-top: 1px solid rgba(112,165,253,0.08); text-align: center; }
+        .footer-text { font-size: 11.5px; color: #414868; font-style: italic; line-height: 1.5; }
+        .footer-text span { background: linear-gradient(90deg, #70a5fd, #bf91f3); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; font-weight: 600; font-style: normal; }
       </style>
 
       <div class="card">
-        <div class="orb orb-1"></div>
-        <div class="orb orb-2"></div>
-        <div class="orb orb-3"></div>
-        <div class="grid"></div>
-        <div class="scanline"></div>
-        <div class="corner-accent"></div>
+        <div class="orb orb-1"></div><div class="orb orb-2"></div><div class="orb orb-3"></div>
+        <div class="grid"></div><div class="scanline"></div><div class="corner-accent"></div>
 
         <div class="content">
-
-          <!-- ══════ HEADER ══════ -->
           <div class="header">
             <div class="name-block">
               <h1>Vishal Kumar</h1>
@@ -362,36 +74,27 @@
             </div>
           </div>
 
-          <!-- ══════ ABOUT ME ══════ -->
           <div class="about-section">
             <div class="left-col">
               <div class="info-item">
                 <div class="info-icon icon-company">🏢</div>
-                <div class="info-text">
-                  <div class="info-label">Company</div>
-                  <div class="info-value">Guidewire Software</div>
-                </div>
+                <div class="info-text"><div class="info-label">Current</div><div class="info-value">Guidewire Software</div></div>
+              </div>
+              <div class="info-item">
+                <div class="info-icon icon-prev">🔶</div>
+                <div class="info-text"><div class="info-label">Previous</div><div class="info-value">SOLUM — IoT &amp; Retail Tech</div></div>
               </div>
               <div class="info-item">
                 <div class="info-icon icon-location">📍</div>
-                <div class="info-text">
-                  <div class="info-label">Location</div>
-                  <div class="info-value">Bangalore, India 🇮🇳</div>
-                </div>
+                <div class="info-text"><div class="info-label">Location</div><div class="info-value">Bangalore, India 🇮🇳</div></div>
               </div>
               <div class="info-item">
                 <div class="info-icon icon-oss">🌐</div>
-                <div class="info-text">
-                  <div class="info-label">Open Source</div>
-                  <div class="info-value">KubeVela Contributor (CNCF)</div>
-                </div>
+                <div class="info-text"><div class="info-label">Open Source</div><div class="info-value">KubeVela Contributor (CNCF)</div></div>
               </div>
               <div class="info-item">
                 <div class="info-icon icon-travel">✈️</div>
-                <div class="info-text">
-                  <div class="info-label">Beyond Code</div>
-                  <div class="info-value">Globetrotter · Photographer</div>
-                </div>
+                <div class="info-text"><div class="info-label">Beyond Code</div><div class="info-value">Globetrotter · Photographer</div></div>
               </div>
             </div>
 
@@ -400,102 +103,55 @@
             <div class="right-col">
               <div class="section-label">⚡ Expertise</div>
               <div class="skill-grid">
-                <div class="skill-row">
-                  <div class="skill-dot dot-go"></div>
-                  <div class="skill-text">Go · Kubernetes Operators · Cloud Native</div>
-                </div>
-                <div class="skill-row">
-                  <div class="skill-dot dot-java"></div>
-                  <div class="skill-text">Java · Spring Boot · Microservices</div>
-                </div>
-                <div class="skill-row">
-                  <div class="skill-dot dot-k8s"></div>
-                  <div class="skill-text">Kubernetes · Helm · Docker · k3d</div>
-                </div>
-                <div class="skill-row">
-                  <div class="skill-dot dot-cicd"></div>
-                  <div class="skill-text">CI/CD · GitHub Actions · ArgoCD</div>
-                </div>
-                <div class="skill-row">
-                  <div class="skill-dot dot-cncf"></div>
-                  <div class="skill-text">KubeVela · CNCF · Multicluster</div>
-                </div>
-                <div class="skill-row">
-                  <div class="skill-dot dot-api"></div>
-                  <div class="skill-text">REST APIs · Platform Engineering</div>
-                </div>
+                <div class="skill-row"><div class="skill-dot dot-go"></div><div class="skill-text">Go · Kubernetes Operators · CUE</div></div>
+                <div class="skill-row"><div class="skill-dot dot-java"></div><div class="skill-text">Java · Spring Boot · Spring Cloud</div></div>
+                <div class="skill-row"><div class="skill-dot dot-azure"></div><div class="skill-text">Azure · AKS · IoT Hub · Event Hub</div></div>
+                <div class="skill-row"><div class="skill-dot dot-k8s"></div><div class="skill-text">Kubernetes · Helm · Docker · HPA</div></div>
+                <div class="skill-row"><div class="skill-dot dot-cicd"></div><div class="skill-text">CI/CD · GitHub Actions · ArgoCD</div></div>
+                <div class="skill-row"><div class="skill-dot dot-db"></div><div class="skill-text">Redis · PostgreSQL · MongoDB</div></div>
               </div>
             </div>
           </div>
 
-          <!-- ══════ DIVIDER ══════ -->
           <div class="section-divider"></div>
 
-          <!-- ══════ HIGHLIGHTS ══════ -->
           <div class="highlights-header">
-            <div class="dot-mac dot-mac-r"></div>
-            <div class="dot-mac dot-mac-y"></div>
-            <div class="dot-mac dot-mac-g"></div>
+            <div class="dot-mac dot-mac-r"></div><div class="dot-mac dot-mac-y"></div><div class="dot-mac dot-mac-g"></div>
             <div class="terminal-title">~/vishal/highlights.yml</div>
           </div>
 
           <div class="items">
             <div class="item">
               <div class="icon-circle ic-blue">🔭</div>
-              <div class="item-text">
-                <div class="item-label">Open Source</div>
-                <div class="item-value">Active contributor to KubeVela — CNCF project for modern app delivery</div>
-              </div>
+              <div class="item-text"><div class="item-label">Open Source</div><div class="item-value">KubeVela (CNCF) — CUE validation, webhook TLS fixes, K8s upgrades &amp; dev logging</div></div>
             </div>
-
             <div class="item">
               <div class="icon-circle ic-teal">🛠️</div>
-              <div class="item-text">
-                <div class="item-label">Cloud Native</div>
-                <div class="item-value">Building Kubernetes operators &amp; cloud-native tooling in Go</div>
-              </div>
+              <div class="item-text"><div class="item-label">Cloud Native</div><div class="item-value">K8s operators in Go, AKS autoscaling, HPA, ConfigMaps &amp; graceful shutdown</div></div>
             </div>
-
             <div class="item">
-              <div class="icon-circle ic-orange">☕</div>
-              <div class="item-text">
-                <div class="item-label">Backend</div>
-                <div class="item-value">Reading &amp; building Java projects to deepen core fundamentals</div>
-              </div>
+              <div class="icon-circle ic-orange">⚡</div>
+              <div class="item-text"><div class="item-label">Microservices</div><div class="item-value">Multi-tenant Spring Boot, AMQPS event-driven &amp; Spring Integration at SOLUM</div></div>
             </div>
-
+            <div class="item">
+              <div class="icon-circle ic-azure">☁️</div>
+              <div class="item-text"><div class="item-label">Azure &amp; IoT</div><div class="item-value">IoT Hub, Event Hub, Blob Storage, AKS, SAML SSO &amp; Spring Cloud Gateway</div></div>
+            </div>
             <div class="item">
               <div class="icon-circle ic-purple">🏗️</div>
-              <div class="item-text">
-                <div class="item-label">Platform Eng</div>
-                <div class="item-value">Crafting platform engineering solutions at Guidewire Software</div>
-              </div>
+              <div class="item-text"><div class="item-label">Platform Eng</div><div class="item-value">Crafting platform engineering solutions at Guidewire Software</div></div>
             </div>
-
             <div class="item">
               <div class="icon-circle ic-green">🌱</div>
-              <div class="item-text">
-                <div class="item-label">Learning</div>
-                <div class="item-value">AI agents, K8s controller internals, TLS/OIDC/SSH auth &amp; Java deep dives</div>
-              </div>
-            </div>
-
-            <div class="item">
-              <div class="icon-circle ic-pink">✈️</div>
-              <div class="item-text">
-                <div class="item-label">Beyond Code</div>
-                <div class="item-value">Globetrotter exploring the world &amp; capturing moments through 📷</div>
-              </div>
+              <div class="item-text"><div class="item-label">Learning</div><div class="item-value">AI agents, K8s controller internals, TLS/OIDC/SSH auth &amp; Java deep dives</div></div>
             </div>
           </div>
 
-          <!-- ══════ FOOTER ══════ -->
           <div class="footer-bar">
             <div class="footer-text">
-              Building a world — from <span>Java &amp; Spring Boot</span> to <span>Kubernetes platforms with Go</span> — empowering communities through <span>open-source</span>
+              Building a world — from <span>event-driven microservices</span> to <span>Kubernetes platforms with Go</span> — empowering communities through <span>open-source</span>
             </div>
           </div>
-
         </div>
       </div>
     </div>
