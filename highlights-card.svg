@@ -1,0 +1,236 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="850" height="340" viewBox="0 0 850 340">
+  <foreignObject width="850" height="340">
+    <div xmlns="http://www.w3.org/1999/xhtml">
+      <style>
+        @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&amp;family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;display=swap');
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        .card {
+          width: 850px;
+          height: 340px;
+          background: linear-gradient(135deg, #0f0f1a 0%, #1a1a2e 40%, #16213e 100%);
+          border-radius: 20px;
+          position: relative;
+          overflow: hidden;
+          font-family: 'Plus Jakarta Sans', sans-serif;
+          border: 1px solid rgba(112, 165, 253, 0.15);
+        }
+
+        /* ── animated mesh bg ── */
+        .card::before {
+          content: '';
+          position: absolute;
+          top: -50%; left: -50%;
+          width: 200%; height: 200%;
+          background:
+            radial-gradient(circle at 20% 50%, rgba(112,165,253,0.07) 0%, transparent 50%),
+            radial-gradient(circle at 80% 20%, rgba(191,145,243,0.07) 0%, transparent 50%),
+            radial-gradient(circle at 50% 90%, rgba(0,216,180,0.05) 0%, transparent 50%);
+          animation: meshMove 8s ease-in-out infinite alternate;
+        }
+        @keyframes meshMove {
+          0%   { transform: translate(0, 0) rotate(0deg); }
+          100% { transform: translate(-3%, -3%) rotate(2deg); }
+        }
+
+        /* ── scan line ── */
+        .scanline {
+          position: absolute;
+          top: -100%; left: 0;
+          width: 100%; height: 2px;
+          background: linear-gradient(90deg, transparent, rgba(112,165,253,0.3), transparent);
+          animation: scan 4s linear infinite;
+        }
+        @keyframes scan {
+          0%   { top: -5%; }
+          100% { top: 105%; }
+        }
+
+        /* ── grid overlay ── */
+        .grid {
+          position: absolute;
+          top: 0; left: 0;
+          width: 100%; height: 100%;
+          background-image:
+            linear-gradient(rgba(112,165,253,0.03) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(112,165,253,0.03) 1px, transparent 1px);
+          background-size: 40px 40px;
+        }
+
+        .content {
+          position: relative;
+          z-index: 10;
+          padding: 28px 36px;
+          height: 100%;
+          display: flex;
+          flex-direction: column;
+        }
+
+        /* ── terminal header ── */
+        .terminal-bar {
+          display: flex;
+          align-items: center;
+          gap: 8px;
+          margin-bottom: 22px;
+        }
+        .dot { width: 11px; height: 11px; border-radius: 50%; }
+        .dot-r { background: #ff5f57; }
+        .dot-y { background: #febc2e; }
+        .dot-g { background: #28c840; }
+        .terminal-title {
+          font-family: 'JetBrains Mono', monospace;
+          font-size: 11px;
+          color: rgba(255,255,255,0.35);
+          margin-left: 10px;
+          letter-spacing: 1px;
+          text-transform: uppercase;
+        }
+
+        /* ── items grid ── */
+        .items {
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          gap: 14px 24px;
+          flex: 1;
+        }
+
+        .item {
+          display: flex;
+          align-items: flex-start;
+          gap: 12px;
+          padding: 12px 16px;
+          background: rgba(255,255,255,0.03);
+          border-radius: 12px;
+          border: 1px solid rgba(255,255,255,0.05);
+          transition: all 0.3s ease;
+        }
+
+        .icon-circle {
+          width: 36px;
+          height: 36px;
+          border-radius: 10px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          font-size: 17px;
+          flex-shrink: 0;
+        }
+
+        .item-text {
+          display: flex;
+          flex-direction: column;
+          gap: 2px;
+        }
+        .item-label {
+          font-family: 'JetBrains Mono', monospace;
+          font-size: 10px;
+          font-weight: 500;
+          text-transform: uppercase;
+          letter-spacing: 1.5px;
+          color: rgba(255,255,255,0.4);
+        }
+        .item-value {
+          font-size: 13.5px;
+          font-weight: 600;
+          color: rgba(255,255,255,0.9);
+          line-height: 1.35;
+        }
+
+        /* ── color themes for icons ── */
+        .ic-blue   { background: rgba(112,165,253,0.15); }
+        .ic-purple { background: rgba(191,145,243,0.15); }
+        .ic-teal   { background: rgba(0,216,180,0.15); }
+        .ic-orange { background: rgba(255,158,67,0.15); }
+        .ic-pink   { background: rgba(255,107,129,0.15); }
+        .ic-green  { background: rgba(40,200,64,0.15); }
+
+        /* ── bottom tagline ── */
+        .tagline {
+          margin-top: 16px;
+          text-align: center;
+          font-family: 'JetBrains Mono', monospace;
+          font-size: 11.5px;
+          color: rgba(255,255,255,0.3);
+          font-style: italic;
+          letter-spacing: 0.5px;
+        }
+        .tagline span {
+          background: linear-gradient(90deg, #70a5fd, #bf91f3);
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+          font-weight: 700;
+          font-style: normal;
+        }
+      </style>
+
+      <div class="card">
+        <div class="scanline"></div>
+        <div class="grid"></div>
+
+        <div class="content">
+          <div class="terminal-bar">
+            <div class="dot dot-r"></div>
+            <div class="dot dot-y"></div>
+            <div class="dot dot-g"></div>
+            <div class="terminal-title">~/vishal/highlights.yml</div>
+          </div>
+
+          <div class="items">
+            <div class="item">
+              <div class="icon-circle ic-blue">🔭</div>
+              <div class="item-text">
+                <div class="item-label">Open Source</div>
+                <div class="item-value">Active contributor to KubeVela — a CNCF project for modern app delivery</div>
+              </div>
+            </div>
+
+            <div class="item">
+              <div class="icon-circle ic-teal">🛠️</div>
+              <div class="item-text">
+                <div class="item-label">Cloud Native</div>
+                <div class="item-value">Building Kubernetes operators &amp; cloud-native tooling in Go</div>
+              </div>
+            </div>
+
+            <div class="item">
+              <div class="icon-circle ic-orange">☕</div>
+              <div class="item-text">
+                <div class="item-label">Backend</div>
+                <div class="item-value">Reading &amp; building Java projects to deepen core fundamentals</div>
+              </div>
+            </div>
+
+            <div class="item">
+              <div class="icon-circle ic-purple">🏗️</div>
+              <div class="item-text">
+                <div class="item-label">Platform Eng</div>
+                <div class="item-value">Crafting platform engineering solutions at Guidewire Software</div>
+              </div>
+            </div>
+
+            <div class="item">
+              <div class="icon-circle ic-green">🌱</div>
+              <div class="item-text">
+                <div class="item-label">Learning</div>
+                <div class="item-value">AI agents, K8s controller internals, TLS/OIDC/SSH auth &amp; Java deep dives</div>
+              </div>
+            </div>
+
+            <div class="item">
+              <div class="icon-circle ic-pink">✈️</div>
+              <div class="item-text">
+                <div class="item-label">Beyond Code</div>
+                <div class="item-value">Globetrotter exploring the world &amp; capturing moments through 📷</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="tagline">
+            // <span>empowering developer communities</span> through open-source, one PR at a time
+          </div>
+        </div>
+      </div>
+    </div>
+  </foreignObject>
+</svg>
