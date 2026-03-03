@@ -1,0 +1,101 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="840" height="380" viewBox="0 0 840 380">
+  <defs>
+    <linearGradient id="headerGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#70a5fd;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#bf91f3;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#1a1b27;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#16161e;stop-opacity:1" />
+    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="2" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  
+  <!-- Card Background -->
+  <rect width="840" height="380" rx="16" ry="16" fill="url(#bgGrad)"/>
+  
+  <!-- Border glow -->
+  <rect width="838" height="378" x="1" y="1" rx="15" ry="15" fill="none" stroke="url(#headerGrad)" stroke-width="1.5" opacity="0.4"/>
+  
+  <!-- Header bar -->
+  <rect width="840" height="52" rx="16" ry="16" fill="url(#headerGrad)" opacity="0.15"/>
+  <rect width="840" height="26" y="26" fill="url(#headerGrad)" opacity="0.15"/>
+  
+  <!-- Header text -->
+  <text x="420" y="36" font-family="'Segoe UI', Ubuntu, sans-serif" font-size="18" font-weight="700" fill="#c0caf5" text-anchor="middle" letter-spacing="2">
+    ⚡ ABOUT ME
+  </text>
+  
+  <!-- Decorative dots in header -->
+  <circle cx="24" cy="26" r="6" fill="#ff5f56" opacity="0.8"/>
+  <circle cx="44" cy="26" r="6" fill="#ffbd2e" opacity="0.8"/>
+  <circle cx="64" cy="26" r="6" fill="#27c93f" opacity="0.8"/>
+
+  <!-- Left Column -->
+  <!-- Name -->
+  <text x="40" y="90" font-family="'Segoe UI', Ubuntu, sans-serif" font-size="24" font-weight="700" fill="#70a5fd">
+    Vishal Kumar
+  </text>
+  
+  <!-- Role -->
+  <text x="40" y="115" font-family="'Segoe UI', Ubuntu, sans-serif" font-size="13" fill="#7aa2f7" opacity="0.8">
+    Software Engineer — Backend &amp; Platform Engineering
+  </text>
+  
+  <!-- Divider line -->
+  <line x1="40" y1="130" x2="380" y2="130" stroke="#414868" stroke-width="1" opacity="0.5"/>
+  
+  <!-- Info items - Left -->
+  <text x="68" y="158" font-family="'Segoe UI', Ubuntu, sans-serif" font-size="14" fill="#a9b1d6">🏢  Guidewire Software</text>
+  <text x="68" y="186" font-family="'Segoe UI', Ubuntu, sans-serif" font-size="14" fill="#a9b1d6">📍  Bangalore, India 🇮🇳</text>
+  <text x="68" y="214" font-family="'Segoe UI', Ubuntu, sans-serif" font-size="14" fill="#a9b1d6">🌐  Open-Source Contributor @ KubeVela (CNCF)</text>
+  <text x="68" y="242" font-family="'Segoe UI', Ubuntu, sans-serif" font-size="14" fill="#a9b1d6">✈️  Globetrotter · Photographer</text>
+
+  <!-- Separator -->
+  <line x1="420" y1="70" x2="420" y2="360" stroke="#414868" stroke-width="1" opacity="0.3"/>
+
+  <!-- Right Column - Expertise -->
+  <text x="450" y="90" font-family="'Segoe UI', Ubuntu, sans-serif" font-size="16" font-weight="700" fill="#bf91f3">
+    🎯 Expertise
+  </text>
+
+  <!-- Expertise items with colored bullets -->
+  <rect x="450" y="108" width="10" height="10" rx="2" fill="#00ADD8"/>
+  <text x="470" y="118" font-family="'Segoe UI', Ubuntu, sans-serif" font-size="13" fill="#c0caf5">Go · Kubernetes Operators · CUE</text>
+  
+  <rect x="450" y="136" width="10" height="10" rx="2" fill="#ED8B00"/>
+  <text x="470" y="146" font-family="'Segoe UI', Ubuntu, sans-serif" font-size="13" fill="#c0caf5">Java · Spring Boot · Microservices</text>
+  
+  <rect x="450" y="164" width="10" height="10" rx="2" fill="#326CE5"/>
+  <text x="470" y="174" font-family="'Segoe UI', Ubuntu, sans-serif" font-size="13" fill="#c0caf5">Kubernetes · Helm · Docker · k3d</text>
+
+  <rect x="450" y="192" width="10" height="10" rx="2" fill="#2088FF"/>
+  <text x="470" y="202" font-family="'Segoe UI', Ubuntu, sans-serif" font-size="13" fill="#c0caf5">CI/CD · GitHub Actions · ArgoCD</text>
+
+  <rect x="450" y="220" width="10" height="10" rx="2" fill="#1a73e8"/>
+  <text x="470" y="230" font-family="'Segoe UI', Ubuntu, sans-serif" font-size="13" fill="#c0caf5">KubeVela · CNCF · Multicluster</text>
+
+  <rect x="450" y="248" width="10" height="10" rx="2" fill="#6DB33F"/>
+  <text x="470" y="258" font-family="'Segoe UI', Ubuntu, sans-serif" font-size="13" fill="#c0caf5">REST APIs · Platform Engineering</text>
+
+  <!-- Bottom tagline area -->
+  <line x1="40" y1="290" x2="800" y2="290" stroke="#414868" stroke-width="1" opacity="0.3"/>
+  
+  <!-- Tagline -->
+  <text x="420" y="320" font-family="'Segoe UI', Ubuntu, sans-serif" font-size="13" fill="#565f89" text-anchor="middle" font-style="italic">
+    "Building a world — from Java &amp; Spring Boot to Kubernetes platforms with Go
+  </text>
+  <text x="420" y="340" font-family="'Segoe UI', Ubuntu, sans-serif" font-size="13" fill="#565f89" text-anchor="middle" font-style="italic">
+    and empowering CNCF communities through open-source."
+  </text>
+
+  <!-- Bottom accent bar -->
+  <rect y="368" width="840" height="12" rx="0" ry="0" fill="url(#headerGrad)" opacity="0.2"/>
+  <rect y="368" width="840" height="2" fill="url(#headerGrad)" opacity="0.5"/>
+</svg>
