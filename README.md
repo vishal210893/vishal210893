@@ -216,18 +216,6 @@ graph LR
 
 ---
 
-## 🐍 &nbsp;Watch My Contributions Get Eaten
-
-<div align="center">
-
-![github-snake](https://raw.githubusercontent.com/vishal210893/vishal210893/output/github-snake-dark.svg)
-
-</div>
-
-> 💡 *To enable the snake animation, add the [snk workflow](https://github.com/Platane/snk) to your profile repo's GitHub Actions.*
-
----
-
 <div align="center">
 
 ### <img src="https://github.com/0xAbdulKhalid/0xAbdulKhalid/raw/main/assets/mdImages/handshake.gif" width="60"> &nbsp;Let's Connect!
